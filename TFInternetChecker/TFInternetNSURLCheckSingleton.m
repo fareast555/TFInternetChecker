@@ -14,7 +14,7 @@
     TFInternetStatus _currentStatus;
     NSTimer *_InternetCheckTimer;
     NSTimer *_timeoutTimer;
-  //  float _totalTime;
+    float _totalTime;
 
 }
 
