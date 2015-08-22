@@ -1,5 +1,5 @@
 # TFInternetChecker
-Checks if device is connected to the Internet, and distinguishes between no connection, and a 100% package loss scenario. Free to use and share with no restriction. If you use it in an app, I’d love to see it at work, so please let me know! 
+Utility singleton class that checks if device is connected to the Internet, and distinguishes between no connection, and a 100% package loss scenario. Free to use and share with no restriction. If you use it in an app, I’d love to see it at work, so please let me know! 
 
 HOW TO USE (Objective-C: Swift to follow in a few months)
 
