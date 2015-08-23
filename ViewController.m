@@ -36,15 +36,14 @@
         
         if (status == TFInternetStatusFullyConnected) {
             NSLog(@"IsThereInternet --- internet is connected!");
-            NSString *success = @"Oops!";
             NSString *connected = @"You are fully connected to the Internet. Congrats!";
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:success message:connected delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:connected delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         } else if (status == TFInternetStatusNoInternet)  {
             NSString *oops = @"Oops!";
-            NSString *noInternet = @"You are not connected to the Internet";
+            NSString *noInternet = @"You are not connected to the Internet.";
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:oops message:noInternet delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
