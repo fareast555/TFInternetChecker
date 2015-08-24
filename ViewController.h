@@ -12,5 +12,11 @@
 
 - (IBAction)checkInternet:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *checkerButton;
+
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activitySpinner;
+
+
 @end
 

@@ -15,10 +15,11 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -27,12 +28,18 @@
 
 - (IBAction)checkInternet:(id)sender
 {
+    //1. Disable button
+    self.checkerButton.enabled = NO;
     
-    //1. Send a message to the singleton. I have set the timeout to 11 seconds
+    //2. Show indicator
+    [self.activitySpinner startAnimating];
+    
+    
+    //3. Send a message to the singleton. I have set the timeout to 11 seconds
     
     [[TFInternetNSURLCheckSingleton sharedInternetNSURLCheck] checkConnectionStatusWithTimeout:11.0f AndCompletion: ^(TFInternetStatus status) {
         
-        //2. Handle the typedef returned by the completion block
+        //4. Handle the typedef returned by the completion block
         
         if (status == TFInternetStatusFullyConnected) {
             NSLog(@"IsThereInternet --- internet is connected!");
@@ -57,6 +64,9 @@
             
         }
         
+        //5. Reset UI
+        [self.activitySpinner stopAnimating];
+        self.checkerButton.enabled = YES;
     }];
     
 }

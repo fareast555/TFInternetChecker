@@ -14,7 +14,6 @@
     TFInternetStatus _currentStatus;
     NSTimer *_InternetCheckTimer;
     NSTimer *_timeoutTimer;
-    float _totalTime;
 
 }
 
@@ -47,7 +46,6 @@
     
     //Timer 2 keeps pinging every 0.2s to see if the _current status has changed
     _InternetCheckTimer = [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(testConnectionStatus) userInfo:nil repeats:YES];
-  //  _totalTime = -0.2f;
     
     [_InternetCheckTimer fire];
     
@@ -115,10 +113,7 @@
 /* This method is called every 0.2 seconds. If we do not have a yes/no about connectivity, this method will handle the time out */
 - (void) testConnectionStatus
 {
-   //1. Each time the timer pings this method, increment the time
-   // _totalTime = _totalTime + 0.2f;
     
-   
    //1. Is status unclear? If so, keep searching until we time out.
     if (_currentStatus == TFInternetStatusSearching) {
         
@@ -136,16 +131,15 @@
         _statusHandler (_currentStatus);
         _statusHandler = nil;
         
-       
-      //  NSLog(@"Completion closed in %f seconds", _totalTime);
         
     }
 }
 
-/* This method deals with the edge case of mobile wifi users (and others) who have a personal hotspot, but are in a sex dungeon somewhere and the router is not connected. If this method is called, it is because the timeout was reached and we can assume that a reliable internet connection was not found. */
+/* This method deals with the edge case (not so unusual in Asia) of mobile wifi users (and others) who have a personal hotspot, but are in a sex dungeon somewhere and the router is not connected. If this method is called, it is because the timeout was reached and we can assume that a reliable internet connection was not found. */
 
 - (void) endCheckAs100percentPackageLoss
 {
+    NSLog(@"endCheck called. Returning 100 percent loss typedef");
     // Set status as 100% package loss (Connected to a router -- pocket WIFI etc -- but that router is not connected to a host server)
     _currentStatus = TFInternetStatus100percentLoss;
     

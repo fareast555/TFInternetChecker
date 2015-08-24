@@ -18,7 +18,7 @@ The singleton is called with a completion block that returns a typeDef. The meth
 
 
 
-The singleton uses the same logic as many other Internet checker solutions: It tries to download a data file from the Internet. But TFInternetNSURLCheckSingleton is different from Reachability and others in that it also prevents system freezes in situations of 100% packet loss (when the user's device is connected to a router, but the router is not connected to the Internet).  
+The singleton uses the same logic as many other Internet checker solutions: It tries to download a data file from the Internet. But TFInternetNSURLCheckSingleton is different from Reachability and others in that it also prevents system freezes in situations of 100% packet loss (when the user's device is connected to a router, but the router is not connected to the Internet). In practical terms, no connection is the same as a 100% packet loss, but at least you have control how long you wait before alerting the user they have a messed up network connection.
 
 TFInternetNSURLCheckSingleton returns one of 3 typedefs: 
      TFInternetStatusNoInternet, 
