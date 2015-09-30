@@ -7,9 +7,9 @@ Drag TFInternetNSURLCheckSingleton.h / .m into your project folder and then into
 
 Import the singleton within the class that will be checking for Internet connectivity
 
+In the "IsThereInternet" method, there are two calls to small files on the Internet. You should create your own files and put them in an HTTPS secure site. HTTP WILL NOT LOAD IN iOS9 and beyond unless you put an exception in your plist file. So make sure your URLs are HTTPS. Choose locations that you can control and are sure will not suddenly get deleted or go offline (which is why there are two, so you have a redundant backup). CHOOSE YOUR OWN FILES! If I decide to close my blog or app site, this class won't work. So make sure you add your own files.'
+
 The singleton is called with a completion block that returns a typeDef. The method takes one argument, which is the amount of time you want the singleton to keep checking before it times out: 
-
-
 
 [[TFInternetNSURLCheckSingleton sharedInternetNSURLCheck] checkConnectionStatusWithTimeout:11.0f AndCompletion: ^(TFInternetStatus status) { 
 
