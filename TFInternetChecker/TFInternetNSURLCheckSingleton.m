@@ -51,7 +51,7 @@
     
     //4. START the check
     /*
-     Async is used to account for when user is connected to a router, but the router is not connected to the network. Using asynch prevents freezes in the main thread that happen while the system waits for it's very long time out. Instead, we can leave the check when our own time out is reached.
+     Async is used to account for when user is connected to a router, but the router is not connected to the network. Using asynch prevents freezes in the main thread that happen while the system waits for its very long time out. Instead, we can leave the check when our own time out is reached.
      */
    
     

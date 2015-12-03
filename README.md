@@ -1,6 +1,8 @@
 # TFInternetChecker
 Utility singleton class that checks if device is connected to the Internet, and distinguishes between no connection, and a 100% package loss scenario. Free to use and share with no restriction. If you use it in an app, I’d love to see it at work, so please let me know! 
 
+**Note: This Singleton can only handle ONE internet check at a time. Block off the UI so that no other calls are made until you have a result from the completion handler. 
+
 HOW TO USE (Objective-C: Swift to follow in a few months)
 
 Drag TFInternetNSURLCheckSingleton.h / .m into your project folder and then into xCode.
