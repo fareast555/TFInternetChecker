@@ -69,6 +69,7 @@
     /* !!! This data must be something you are SURE will not disappear from the internet in the life of the app. */
     NSURL *scriptUrl = [NSURL URLWithString:@"http://www.flashlearningapp.com/uploads/5/1/0/3/51037765/839780.jpg"];
     
+    //This is a backup in case for some reason one of the servers holding the files is down
     NSURL *backupScriptURL = [NSURL URLWithString:@"https://asiatravelbugdotnet.files.wordpress.com/2015/06/whiteimage.png"];
     
     NSData *data = [NSData dataWithContentsOfURL:scriptUrl];
@@ -79,7 +80,9 @@
    // NSLog(@"data URL is %lu bytes", (unsigned long)data.length);
    // NSLog(@"Backup data is %lu bytes", (unsigned long)backupData.length);
     
-    //6. Call to change the TFInternetStatus status accordingly
+    //6. Call to change the TFInternetStatus status accordingly.
+    //In the event of 100% packet loss, the NSURL calls above will not resolve so the following
+    //logic will not work and the timeout kill switch will complete the block.
     if (data || backupData) {
         NSLog(@"Device is connected to the internet");
         [self setAsConnected];
